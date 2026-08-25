@@ -71,3 +71,17 @@ vectorised version trace each other exactly. SGD starts higher because its
 first recorded cost comes after a full epoch of 100 individual updates, not
 after one batch step — the x-axes are not directly comparable.
 
+## Derivation (handwritten)
+
+![](derivation-1.jpg)
+![](derivation-2.jpg)
+![](derivation-3.jpg)
+
+## Notes
+- **`*` vs `@`** — `*` broadcasts and keeps every product; `@` sums them. The
+  prediction needs the sum. `*` doesn't error, which makes it a bug.
+- **Bias = the ones column** — "intercept" and "bias" are the same θ₀. Folding
+  it in as x₀ = 1 means no special case anywhere in the code.
+- **Noise floor** — GD's cost (0.4915) is below the cost at `theta_true`
+  (0.5131). Least squares fits this noisy sample slightly better than the
+  parameters that generated it.
