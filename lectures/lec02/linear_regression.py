@@ -5,9 +5,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 rng = np.random.default_rng(42)  #function to seed the data
-X_features = rng.normal(size=(100, 3)) #seeding the data around `Bell curve` woth 100 rows(training examples) and 3 columns(features)
+X_features = rng.normal(size=(100, 3)) 
+#seeding the data around `Bell curve` woth 100 rows(training examples) and 3 columns(features)
 
-X = np.hstack([np.ones((100, 1)), X_features]) #adding intercept as a very first column, to preserve base case, in case if features are 0
+X = np.hstack([np.ones((100, 1)), X_features]) 
+#adding intercept as a very first column, to preserve base case, in case if features are 0
 #print(X.shape)
 
 theta_true = np.array([5.0, 2.0, -3.0, 0.5]) #actual parameters
@@ -27,7 +29,8 @@ def compute_cost(X, y, theta):
     """
     cost = 0 
     for i in range (X.shape[0]):
-        prediction = X[i] @ theta #dot multiplication iterated over every row and multipling elementwise and sum into one number 
+        prediction = X[i] @ theta 
+    #dot multiplication iterated over every row and multipling elementwise and sum into one number 
         error = (prediction - y[i]) ** 2
         cost += error
     return 1/2 * cost 
@@ -45,7 +48,8 @@ def compute_cost_vect(X, y, theta):
         Return:
             Scalar cost J(theta)
         """
-    error = X @ theta - y #actual predictions for all examples at once minus target -> error vector (100,)
+    error = X @ theta - y 
+    #actual predictions for all examples at once minus target -> error vector (100,)
     cost = 1/2 * error @ error # z.T*z = sum of z^2, @ does that sum
     return cost 
 
@@ -120,7 +124,8 @@ print(f"LMS (vector):      {time.perf_counter() - start:.3f}s")
 assert np.allclose(theta_lv, theta_gd)
 
 def SGD(X, y, theta, alpha, num_epochs):
-    """Stochastic Gradient Descent function updates parameters after each individual example, rather than accumulating over the full dataset
+    """Stochastic Gradient Descent function updates parameters after each individual example, 
+    rather than accumulating over the full dataset
         Args:
             X: (m, n) design matrix, first column all ones for the intercept.
             y: (m,) target values.
