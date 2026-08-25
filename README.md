@@ -49,8 +49,6 @@ cs229/
 
 ## Setup
 
-## Setup
-
 ```bash
 conda env create -f environment.yml
 conda activate cs229
