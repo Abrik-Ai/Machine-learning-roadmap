@@ -1,6 +1,11 @@
 # Lec 2 — Linear regression, LMS, normal equations
 
 ## Derivations
+- Linear Regression:
+
+$$h(x) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + … + \theta_jx_j = \sum_{j=0}^{n} \theta_j x_j = \theta^T x$$
+
+
 - Cost Function:
   
 $$J(\theta) = \frac{1}{2}\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)})^2$$
